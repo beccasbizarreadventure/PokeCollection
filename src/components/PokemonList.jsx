@@ -4,16 +4,18 @@ import { PokemonContext } from "../context/PokemonContext";
 const PokemonList = () => {
   const {
     pokemonList,
-    setPokemonList,
-    customPokemonList,
-    setCustomPokemonList
+    addPokemon
   } = useContext(PokemonContext);
 
-  const addToCustomList = (pokemon) => () => {
-    setCustomPokemonList([...customPokemonList, pokemon]);
-    console.log(pokemon)
-    console.log(customPokemonList);
-  };
+  // const removeFromMainList = (removedPokemon) => {
+  //   const updatedList = pokemonList.filter(pokemon => pokemon !== removedPokemon);
+  //   setPokemonList(updatedList);
+  // }
+
+  // const addToCustomList = (pokemon) => () => {
+  //   setCustomPokemonList([...customPokemonList, pokemon]);
+  //   removeFromMainList(pokemon);
+  // };
 
 
   return (
@@ -24,8 +26,8 @@ const PokemonList = () => {
         <div key={`${pokemon.id}`}>
           <p>{pokemon.id}</p>
           <p>{pokemon.name}</p>
-          <img alt={pokemon.name} src={pokemon.img} />
-          <button onClick={addToCustomList(pokemon)}>+</button>
+          <img alt={pokemon.name} src={pokemon.img} onClick={addPokemon(pokemon)}/>
+
         </div>)}
     </div>
   )

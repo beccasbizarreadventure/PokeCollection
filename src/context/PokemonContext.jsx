@@ -1,21 +1,34 @@
-import React, { useState, createContext } from 'react';
+import React, { useReducer, createContext } from 'react';
+import { pokeReducer, ADD_TO_CUSTOM_LIST, REMOVE_FROM_CUSTOM_LIST } from '../logic/usePokemonReducer';
 
 export const PokemonContext = createContext();
 
 export const PokemonProvider = (props) => {
-  const [pokemonList, setPokemonList] = useState([
-    { id: 1, name: 'Bulbasaur', img: './pokeImages/HOME001-Bulbasaur.webp'  },
+
+  const defaultState = {
+    pokemonList: [
+    { id: 1, name:'Bulbasaur', img: './pokeImages/HOME001-Bulbasaur.webp'  },
     { id: 2, name: 'Charmander', img: './pokeImages/HOME004-Charmander.webp' },
     { id: 3, name: 'Squirtle', img: './pokeImages/HOME007-Squirtle.webp' }
-  ]);
+    ],
+    customPokemonList: []
+  };
+  
+  const [state, dispatch] = useReducer(pokeReducer, defaultState);
 
-  const [customPokemonList, setCustomPokemonList] = useState([]);
+  const addPokemon = (pokemon) => () => {
+    dispatch({type: ADD_TO_CUSTOM_LIST, pokemon})
+  };
+
+  const removePokemon = (pokemon) => () => {
+    dispatch({type: REMOVE_FROM_CUSTOM_LIST, pokemon})
+  };
 
   const providerValue = {
-    pokemonList,
-    setPokemonList,
-    customPokemonList,
-    setCustomPokemonList
+    pokemonList: state.pokemonList,
+    customPokemonList: state.customPokemonList,
+    addPokemon,
+    removePokemon
   };
 
   return (

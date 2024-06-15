@@ -3,11 +3,19 @@ import { PokemonContext } from '../context/PokemonContext';
 
 const CustomPokemonList = () => {
   const {
-    pokemonList,
-    setPokemonList,
     customPokemonList,
-    setCustomPokemonList
+    removePokemon
   } = useContext(PokemonContext);
+
+  // const removeFromCustomList = (removedPokemon) => {
+  //   const updatedList = customPokemonList.filter((pokemon) => pokemon !== removedPokemon);
+  //   setCustomPokemonList(updatedList);
+  // };
+
+  // const removePokemon = (pokemon) => () => {
+  //   removeFromCustomList(pokemon);
+  //   setPokemonList([...pokemonList, pokemon]);
+  // };
 
   return (
     <div className="pokedex">
@@ -17,7 +25,7 @@ const CustomPokemonList = () => {
         <div key={`${pokemon.id}`}>
           <p>{pokemon.id}</p>
           <p>{pokemon.name}</p>
-          <img alt={pokemon.name} src={pokemon.img} />
+          <img alt={pokemon.name} src={pokemon.img} onClick={removePokemon(pokemon)} />
         </div>)}
     </div>
   )
