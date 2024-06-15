@@ -1,15 +1,20 @@
-import React from 'react';
-import './App.scss';
-import PokemonList from './components/PokemonList';
-import CustomPokemonList from './components/CustomPokemonList';
-function App() {
+import React from "react";
+import "./App.scss";
 
+import { PokemonProvider } from "./context/PokemonContext";
+import PokemonList from "./components/PokemonList";
+import CustomPokemonList from "./components/CustomPokemonList";
+
+
+const App = () => {
   return (
-    <div className="App">
-    <PokemonList />
-    <CustomPokemonList />
-  </div>
-);
-}
+    <PokemonProvider>
+      <div className="App">
+        <PokemonList />
+        <CustomPokemonList />
+      </div>
+    </PokemonProvider>
+  );
+};
 
 export default App;

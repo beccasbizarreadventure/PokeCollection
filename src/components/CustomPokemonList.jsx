@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { PokemonContext } from '../context/PokemonContext';
 
 const CustomPokemonList = () => {
-  const [pokemonList] = useState([]);
+  const {
+    pokemonList,
+    setPokemonList,
+    customPokemonList,
+    setCustomPokemonList
+  } = useContext(PokemonContext);
 
   return (
     <div className="pokedex">
-      <h2>My Pokemon</h2>
+      <h2>Best Pokemon</h2>
 
-      {pokemonList.map((pokemon) =>
+      {customPokemonList.map((pokemon) =>
         <div key={`${pokemon.id}`}>
           <p>{pokemon.id}</p>
           <p>{pokemon.name}</p>
-          <p>{pokemon.img}</p>
+          <img alt={pokemon.name} src={pokemon.img} />
         </div>)}
     </div>
   )
