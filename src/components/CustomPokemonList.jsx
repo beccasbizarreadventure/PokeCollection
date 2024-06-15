@@ -7,16 +7,6 @@ const CustomPokemonList = () => {
     removePokemon
   } = useContext(PokemonContext);
 
-  // const removeFromCustomList = (removedPokemon) => {
-  //   const updatedList = customPokemonList.filter((pokemon) => pokemon !== removedPokemon);
-  //   setCustomPokemonList(updatedList);
-  // };
-
-  // const removePokemon = (pokemon) => () => {
-  //   removeFromCustomList(pokemon);
-  //   setPokemonList([...pokemonList, pokemon]);
-  // };
-
   return (
     <div className="pokedex">
       <h2>Best Pokemon</h2>

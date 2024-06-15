@@ -1,5 +1,5 @@
 import React, { useReducer, createContext } from 'react';
-import { pokeReducer, ADD_TO_CUSTOM_LIST, REMOVE_FROM_CUSTOM_LIST } from '../logic/usePokemonReducer';
+import { pokeReducer, ADD_TO_CUSTOM_LIST, REMOVE_FROM_CUSTOM_LIST, ADD_NEW_POKEMON } from '../logic/usePokemonReducer';
 
 export const PokemonContext = createContext();
 
@@ -13,7 +13,7 @@ export const PokemonProvider = (props) => {
     ],
     customPokemonList: []
   };
-  
+
   const [state, dispatch] = useReducer(pokeReducer, defaultState);
 
   const addPokemon = (pokemon) => () => {
@@ -24,11 +24,17 @@ export const PokemonProvider = (props) => {
     dispatch({type: REMOVE_FROM_CUSTOM_LIST, pokemon})
   };
 
+  const addNewPokemon = (pokemon) => () => {
+    dispatch({type: ADD_NEW_POKEMON, pokemon})
+  };
+
+
   const providerValue = {
     pokemonList: state.pokemonList,
     customPokemonList: state.customPokemonList,
     addPokemon,
-    removePokemon
+    removePokemon,
+    addNewPokemon,
   };
 
   return (

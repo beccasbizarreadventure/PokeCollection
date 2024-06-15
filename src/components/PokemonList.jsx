@@ -7,17 +7,6 @@ const PokemonList = () => {
     addPokemon
   } = useContext(PokemonContext);
 
-  // const removeFromMainList = (removedPokemon) => {
-  //   const updatedList = pokemonList.filter(pokemon => pokemon !== removedPokemon);
-  //   setPokemonList(updatedList);
-  // }
-
-  // const addToCustomList = (pokemon) => () => {
-  //   setCustomPokemonList([...customPokemonList, pokemon]);
-  //   removeFromMainList(pokemon);
-  // };
-
-
   return (
     <div className="pokemon-list">
       <h2>All Pokemon List</h2>
