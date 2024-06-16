@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { PokemonContext } from "../context/PokemonContext";
 import { generateID } from "../helpers/generateID"
 
@@ -6,7 +6,7 @@ const NewPokemonForm = () => {
 
 const { addNewPokemon } = useContext(PokemonContext);
 
-const [pokemonName, setPokemonName] = useState();
+const [pokemonName, setPokemonName] = useState("");
 
 const handleNameOnChange = (event) => {
   return setPokemonName(event.target.value);
@@ -18,7 +18,10 @@ const handleFormSubmit = (event) => {
     id: generateID(),
     name: pokemonName
   });
+  setPokemonName("");
 };
+
+console.log(pokemonName);
 
   return (
     <form onSubmit={handleFormSubmit}>
