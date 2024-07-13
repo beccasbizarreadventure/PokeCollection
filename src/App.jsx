@@ -1,22 +1,20 @@
-import React from "react";
-import "./App.scss";
+import React from 'react';
 
-import { PokemonProvider } from "./context/PokemonContext";
-import PokemonList from "./components/PokemonList";
-import CustomPokemonList from "./components/CustomPokemonList";
-import NewPokemonForm from "./components/NewPokemonForm";
+import { PokemonProvider } from './Pokemon/context/PokemonContext.jsx';
+import PokemonsList from './Pokemon/components/PokemonsList.jsx';
+import Pokedex from './Pokemon/components/Pokedex.jsx';
+import PokemonForm from './Pokemon/components/PokemonForm.jsx';
 
-
-const App = () => {
-  return (
-    <PokemonProvider>
-      <div className="App">
-        <PokemonList />
-        <NewPokemonForm />
-        <CustomPokemonList />
-      </div>
-    </PokemonProvider>
-  );
-};
+const App = () => (
+  <PokemonProvider>
+    <div>
+      <PokemonsList />
+      <Pokedex />
+    </div>
+    <div className="form-wrapper">
+      <PokemonForm />
+    </div>
+  </PokemonProvider>
+);
 
 export default App;
