@@ -1,5 +1,6 @@
-import { useReducer, useEffect } from 'react';
+import { useReducer, useEffect, useRef } from 'react';
 import { CAPTURE, RELEASE, ADD_NEW_POKEMON, ADD_POKEMONS, SET_POKEMON_NAME } from './actions';
+import { isEqual } from 'lodash';
 import { capturedPokemonsKey, pokemonsKey, capturedPokemonsExists, pokemonExists, getCapturedPokemons, getPokemonsList } from './stateHelpersConstants';
 
 const pokemonReducer = (state, action) => {
@@ -73,9 +74,14 @@ export const usePokemonReducer = () => {
     localStorage.setItem(capturedPokemonsKey, JSON.stringify(state.capturedPokemons));
   }, [state.capturedPokemons]);
 
+  // Compare previous and current pokemons state before logging and updating localStorage
+  const previousPokemonsRef = useRef(state.pokemons);
   useEffect(() => {
-    console.log('Updating pokemons in localStorage:', state.pokemons);
-    localStorage.setItem(pokemonsKey, JSON.stringify(state.pokemons));
+    if (!isEqual(previousPokemonsRef.current, state.pokemons)) {
+      console.log('Updating pokemons in localStorage:', state.pokemons);
+      localStorage.setItem(pokemonsKey, JSON.stringify(state.pokemons));
+      previousPokemonsRef.current = state.pokemons;
+    }
   }, [state.pokemons]);
 
   return [state, dispatch];

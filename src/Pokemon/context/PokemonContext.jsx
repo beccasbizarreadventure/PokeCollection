@@ -20,14 +20,15 @@ const PokemonProvider = (props) => {
   const setPokemonName = (name) => dispatch({ type: SET_POKEMON_NAME, name });
   const addNewPokemon = (pokemon) => dispatch({ type: ADD_NEW_POKEMON, pokemon });
 
-  useEffect(() => {
-    const fetchPokemon = async () => {
-      try {
-        const response = await axios.get(
-          "https://pokeapi.co/api/v2/pokemon?limit=25&offset=0"
-        );
+  const fetchPokemonData = async () => {
+    try {
+      const cachedPokemonData = localStorage.getItem('cachedPokemonData');
+      if (cachedPokemonData) {
+        dispatch({ type: ADD_POKEMONS, pokemons: JSON.parse(cachedPokemonData) });
+      } else {
+        const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=25&offset=0');
         const allPKMdata = response.data.results;
-        // Create an array of promises where each promise fetches a Pokemon's data (imgData) and constructs an object { ...pokemon, imageUrl }
+
         const pokemonPromises = allPKMdata.map(async (pokemon) => {
           const pokemonResponse = await axios.get(pokemon.url);
           const { id, name, sprites, types } = pokemonResponse.data;
@@ -37,15 +38,17 @@ const PokemonProvider = (props) => {
         });
 
         const pokemonData = await Promise.all(pokemonPromises);
-
+        localStorage.setItem('cachedPokemonData', JSON.stringify(pokemonData));
         dispatch({ type: ADD_POKEMONS, pokemons: pokemonData });
-      } catch (error) {
-        console.error("Error fetching Pokémon data:", error);
       }
-    };
+    } catch (error) {
+      console.error('Error fetching Pokémon data:', error);
+    }
+  };
 
-    fetchPokemon();
-  }, [dispatch]);
+  useEffect(() => {
+    fetchPokemonData();
+  }, []);
 
   const providerValue = {
     pokemons,

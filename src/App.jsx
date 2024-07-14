@@ -7,7 +7,7 @@ import PokemonForm from './Pokemon/components/PokemonForm.jsx';
 
 const App = () => (
   <PokemonProvider>
-    <div>
+    <div className='grid grid-cols-2'>
       <PokemonsList />
       <Pokedex />
     </div>
