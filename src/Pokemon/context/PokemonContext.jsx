@@ -15,6 +15,10 @@ const PokemonProvider = (props) => {
   const [state, dispatch] = usePokemonReducer();
   const { pokemons, capturedPokemons, pokemonName } = state;
 
+  const capitalizePokemonName = (name) => {
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  };
+
   const capture = (pokemon) => dispatch({ type: CAPTURE, pokemon });
   const release = (pokemon) => dispatch({ type: RELEASE, pokemon });
   const setPokemonName = (name) => dispatch({ type: SET_POKEMON_NAME, name });
@@ -54,6 +58,7 @@ const PokemonProvider = (props) => {
     pokemons,
     capturedPokemons,
     pokemonName,
+    capitalizePokemonName,
     capture,
     release,
     addNewPokemon,

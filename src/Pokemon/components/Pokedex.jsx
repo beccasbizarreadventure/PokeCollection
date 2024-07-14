@@ -20,7 +20,7 @@ const Pokedex = () => {
             <th>Image</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className='grid grid-flow-row grid-cols-3 grid-rows-3'>
           {capturedPokemons.map((pokemon) => (
             <tr key={pokemon.name}>
               <td>{pokemon.name}</td>
@@ -28,7 +28,7 @@ const Pokedex = () => {
                 <img src={pokemon.imageUrl} alt={pokemon.name} style={{ width: '100px', height: '100px' }} />
               </td>
               <td>
-                <button onClick={() => handleRelease(pokemon)}>Release</button>
+                <button onClick={() => handleRelease(pokemon)}>release</button>
               </td>
             </tr>
           ))}

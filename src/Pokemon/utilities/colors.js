@@ -1,0 +1,20 @@
+export const colors = {
+    water: "bg-gradient-to-b from-cyan-300 to-blue-400",
+    fire: "bg-gradient-to-b from-rose-300 to-red-400",
+    grass: "bg-gradient-to-b from-green-300 to-emerald-400",
+    electric: "bg-gradient-to-b from-amber-200 to-yellow-400",
+    psychic: "bg-purple-300",
+    normal: "bg-gray-300",
+    bug: "bg-green-300",
+    poison: "bg-purple-300",
+    ground: "bg-yellow-300",
+    fairy: "bg-pink-300",
+    fighting: "bg-red-300",
+    rock: "bg-yellow-300",
+    ghost: "bg-purple-300",
+    ice: "bg-blue-300",
+    dragon: "bg-red-300",
+    dark: "bg-gray-300",
+    steel: "bg-gray-300",
+    flying: "bg-blue-300"
+}
