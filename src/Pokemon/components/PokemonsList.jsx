@@ -31,9 +31,9 @@ const PokemonsList = () => {
                   style={{ width: "100px", height: "100px" }}
                 />
               </td>
-              <td>{capitalizePokemonName(`${pokemon.name}`)}</td>
+              <td className="font-bold text-white text-xl mb-2">{capitalizePokemonName(`${pokemon.name}`)}</td>
               <td>
-                <button onClick={() => handleCapture(pokemon)}>capture</button>
+                <button onClick={() => handleCapture(pokemon)} className="bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded-full">capture</button>
               </td>
             </tr>
           ))}
