@@ -3,18 +3,18 @@ export const colors = {
     fire: "bg-gradient-to-r from-orange-300 to-red-400",
     grass: "bg-gradient-to-r from-lime-300 to-green-400",
     electric: "bg-gradient-to-r from-amber-200 to-yellow-400",
-    psychic: "bg-gradient-to-r from-fuchsia-300 to-fuchsia-500",
-    normal: "bg-gradient-to-r from-neutral-200 to-neutral-400",
+    psychic: "bg-gradient-to-r from-purple-300 to-fuchsia-500",
+    normal: "bg-gradient-to-r from-stone-300 to-neutral-400",
     bug: "bg-gradient-to-r from-amber-200 to-green-400",
     poison: "bg-gradient-to-r from-violet-300 to-purple-500",
     ground: "bg-yellow-300",
-    fairy: "bg-pink-300",
+    fairy: "bg-gradient-to-r from-fuchsia-200 to-pink-500",
     fighting: "bg-red-300",
     rock: "bg-yellow-300",
-    ghost: "bg-gradient-to-r from-purple-300 to-fuchsia-500",
+    ghost: "bg-gradient-to-r from-violet-300 to-indigo-500",
     ice: "bg-blue-300",
     dragon: "bg-red-300",
     dark: "bg-gradient-to-r from-slate-400 to-slate-700",
     steel: "bg-gray-300",
-    flying: "bg-blue-300"
+    flying: "bg-gradient-to-r from-blue-200 to-sky-400"
 }

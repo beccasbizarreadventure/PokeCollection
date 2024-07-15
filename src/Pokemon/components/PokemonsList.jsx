@@ -30,7 +30,7 @@ const PokemonsList = () => {
                   style={{ width: "100px", height: "100px" }}
                 />
               </td>
-              <td className="font-bold text-white text-xl mb-2 mt-2">
+              <td className="font-bold text-zinc-50 text-xl mb-2 mt-2">
                 {capitalizePokemonName(`${pokemon.name}`)}
               </td>
               <td>
@@ -38,7 +38,7 @@ const PokemonsList = () => {
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
-                    fill="white"
+                    fill="#fafafa"
                     class="size-8"
                   >
                     <path
