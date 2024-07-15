@@ -4,7 +4,7 @@ import { addNewGuy } from '../utilities/useAddNewGuy';
 
 const PokemonForm = () => {
   
-  const { addNewPokemon, pokemonName, setPokemonName } = useContext(PokemonContext);
+  const { addNewPokemon, pokemonName, setPokemonName, pokemons } = useContext(PokemonContext);
   const { fetchNewPokemon } = addNewGuy();
 
   const handleNameOnChange = (event) => {
@@ -16,6 +16,11 @@ const PokemonForm = () => {
 
     if (!pokemonName.trim()) {
       alert('Please enter a Pokemon name');
+      return;
+    }
+
+    if (pokemons.find((pokemon) => pokemon.name === pokemonName)) {
+      alert('Pokemon already exists');
       return;
     }
 

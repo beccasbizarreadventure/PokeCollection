@@ -1,34 +1,53 @@
-import React, { useContext } from 'react';
-import { PokemonContext } from '../context/PokemonContext';
+import React, { useContext } from "react";
+import { PokemonContext } from "../context/PokemonContext";
+import { colors } from "../utilities/colors";
 
 const Pokedex = () => {
-  const { capturedPokemons, release } = useContext(PokemonContext);
-  // console.log(capturedPokemons)
+  const { capturedPokemons, release, capitalizePokemonName } =
+    useContext(PokemonContext);
 
   const handleRelease = (pokemon) => {
     release(pokemon);
   };
 
   return (
-    <div className="pokedex">
-      <h2>Pokedex</h2>
+    <div>
+      <h1 className="flex justify-center">Pokedex</h1>
 
       <table>
-        <thead>
-          <tr>
-            <th>Pokemon</th>
-            <th>Image</th>
-          </tr>
-        </thead>
-        <tbody className='grid grid-flow-row grid-cols-3 grid-rows-3'>
+        <tbody className="grid grid-flow-row grid-cols-5 grid-rows-3">
           {capturedPokemons.map((pokemon) => (
-            <tr key={pokemon.name}>
-              <td>{pokemon.name}</td>
+            <tr
+              className={`flex flex-col justify-center items-center ${
+                colors[`${pokemon.type}`]
+              } rounded shadow-lg m-5 py-5 px-10`}
+              key={pokemon.id}
+            >
               <td>
-                <img src={pokemon.imageUrl} alt={pokemon.name} style={{ width: '100px', height: '100px' }} />
+                <img
+                  src={pokemon.imageUrl}
+                  alt={pokemon.name}
+                  style={{ width: "100px", height: "100px" }}
+                />
+              </td>
+              <td className="font-bold text-zinc-50 text-xl mb-2 mt-2">
+                {capitalizePokemonName(`${pokemon.name}`)}
               </td>
               <td>
-                <button onClick={() => handleRelease(pokemon)}>release</button>
+                <button onClick={() => handleRelease(pokemon)}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="#fafafa"
+                    className="size-8"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm3 10.5a.75.75 0 0 0 0-1.5H9a.75.75 0 0 0 0 1.5h6Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
               </td>
             </tr>
           ))}
