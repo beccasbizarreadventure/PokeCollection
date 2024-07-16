@@ -13,46 +13,61 @@ const PokemonsList = () => {
   return (
     <div>
       <h1 className="flex justify-center">Pokemons List</h1>
-
-      <table>
-        <tbody className="grid grid-flow-row grid-cols-5 grid-rows-3">
-          {pokemons.map((pokemon) => (
-            <tr
-              className={`flex flex-col justify-center items-center ${
-                colors[`${pokemon.type}`]
-              } rounded shadow-lg m-5 py-5 px-10`}
-              key={pokemon.id}
-            >
-              <td>
-                <img
-                  src={pokemon.imageUrl}
-                  alt={pokemon.name}
-                  style={{ width: "100px", height: "100px" }}
-                />
-              </td>
-              <td className="font-bold text-zinc-50 text-xl mb-2 mt-2">
-                {capitalizePokemonName(`${pokemon.name}`)}
-              </td>
-              <td>
-                <button onClick={() => handleCapture(pokemon)}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="#fafafa"
-                    className="size-8"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <ul className="grid grid-flow-row grid-cols-5">
+        {pokemons.map((pokemon) => (
+          <li
+            className={`flex flex-col justify-center items-center ${
+              colors[`${pokemon.type}`]
+            } rounded shadow-lg m-5 py-10 px-5`}
+            key={pokemon.id}
+            style={{
+              position: "relative",
+              overflow: "hidden",
+              borderRadius: "10px",
+            }}
+          >
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundColor: colors[`${pokemon.type}`],
+                zIndex: 0,
+              }}
+            />
+            <div
+              className="absolute inset-0 bg-no-repeat bg-center bg-cover"
+              style={{
+                backgroundImage: `url("/icons8-pokeball-100.png")`,
+                zIndex: 1,
+                opacity: 0.3,
+              }}
+            />
+            <div className="relative z-10 flex flex-col items-center justify-center space-y-2">
+              <img
+                src={pokemon.imageUrl}
+                alt={pokemon.name}
+                style={{ width: "100px", height: "100px" }}
+              />
+              <div className="font-bold text-zinc-50 text-xl mb-2 mt-2">
+                {capitalizePokemonName(pokemon.name)}
+              </div>
+              <button onClick={() => handleCapture(pokemon)}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="#fafafa"
+                  className="w-8 h-8"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-11.25a.75.75 0 0 0-1.5 0v2.5h-2.5a.75.75 0 0 0 0 1.5h2.5v2.5a.75.75 0 0 0 1.5 0v-2.5h2.5a.75.75 0 0 0 0-1.5h-2.5v-2.5Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
