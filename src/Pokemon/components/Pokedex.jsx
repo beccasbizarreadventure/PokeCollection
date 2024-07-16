@@ -18,12 +18,11 @@ const Pokedex = () => {
           <li
             className={`flex flex-col justify-center items-center ${
               colors[`${pokemon.type}`]
-            } rounded shadow-lg m-5 py-10 px-5`}
+            } rounded-[10px] shadow-lg m-5 py-10 px-5`}
             key={pokemon.id}
             style={{
               position: "relative",
               overflow: "hidden",
-              borderRadius: "10px",
             }}
           >
             <div

@@ -37,6 +37,7 @@ const PokemonForm = () => {
   return (
     <form onSubmit={handleFormSubmit}>
       <input
+        className='rounded-lg'
         type="text"
         placeholder="pokemon name"
         value={pokemonName}
