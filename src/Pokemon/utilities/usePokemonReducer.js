@@ -1,9 +1,9 @@
 import { useReducer, useEffect } from 'react';
-import { CAPTURE, RELEASE, ADD_NEW_POKEMON, ADD_POKEMONS, SET_POKEMON_NAME } from './actions';
+import { CAPTURE, RELEASE, ADD_NEW_POKEMON, ADD_POKEMONS } from './actions';
 import { capturedPokemonsKey, pokemonsKey, capturedPokemonsExists, pokemonExists, getCapturedPokemons, getPokemonsList } from './stateHelpersConstants';
 
 const pokemonReducer = (state, action) => {
-  const { type, pokemon, pokemons, name } = action;
+  const { type, pokemon, pokemons } = action;
 
   switch (type) {
     case CAPTURE:
@@ -45,12 +45,6 @@ const pokemonReducer = (state, action) => {
           pokemons: updatedPokemons,
         };
 
-    case SET_POKEMON_NAME:
-      return {
-        ...state,
-        pokemonName: name,
-      };
-
     default:
       return state;
   }
@@ -60,7 +54,6 @@ export const usePokemonReducer = () => {
   const initialState = {
     pokemons: JSON.parse(localStorage.getItem(pokemonsKey)) || [],
     capturedPokemons: JSON.parse(localStorage.getItem(capturedPokemonsKey)) || [],
-    pokemonName: '',
   };
 
   const [state, dispatch] = useReducer(pokemonReducer, initialState);

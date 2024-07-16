@@ -4,8 +4,7 @@ import {
   CAPTURE,
   RELEASE,
   ADD_NEW_POKEMON,
-  ADD_POKEMONS,
-  SET_POKEMON_NAME,
+  ADD_POKEMONS
 } from "../utilities/actions";
 import axios from "axios";
 
@@ -14,12 +13,11 @@ const PokemonContext = createContext();
 const PokemonProvider = (props) => {
   console.log("Provider Loaded");
   const [state, dispatch] = usePokemonReducer();
-  const { pokemons, capturedPokemons, pokemonName } = state;
+  const { pokemons, capturedPokemons } = state;
   const initialLoad = useRef(true);
 
   const capture = (pokemon) => dispatch({ type: CAPTURE, pokemon });
   const release = (pokemon) => dispatch({ type: RELEASE, pokemon });
-  const setPokemonName = (name) => dispatch({ type: SET_POKEMON_NAME, name });
   const addNewPokemon = (pokemon) =>
     dispatch({ type: ADD_NEW_POKEMON, pokemon });
 
@@ -61,11 +59,9 @@ const PokemonProvider = (props) => {
   const providerValue = {
     pokemons,
     capturedPokemons,
-    pokemonName,
     capture,
     release,
     addNewPokemon,
-    setPokemonName,
   };
 
   return (

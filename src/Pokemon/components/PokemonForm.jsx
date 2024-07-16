@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { PokemonContext } from "../context/PokemonContext";
 import { addNewGuy } from "../utilities/useAddNewGuy";
 
 const PokemonForm = () => {
-  const { addNewPokemon, pokemonName, setPokemonName, pokemons } =
+  const { addNewPokemon, pokemons } =
     useContext(PokemonContext);
   const { fetchNewPokemon } = addNewGuy();
+
+  const [pokemonName, setPokemonName] = useState('');
 
   const handleNameOnChange = (event) => {
     setPokemonName(event.target.value.toLowerCase());
