@@ -3,7 +3,7 @@ import { PokemonContext } from "../context/PokemonContext";
 import { colors } from "../utilities/colors";
 
 const Pokedex = () => {
-  const { capturedPokemons, release, capitalizePokemonName } =
+  const { capturedPokemons, release } =
     useContext(PokemonContext);
 
   const handleRelease = (pokemon) => {
@@ -47,8 +47,8 @@ const Pokedex = () => {
                 alt={pokemon.name}
                 style={{ width: "100px", height: "100px" }}
               />
-              <div className="font-bold text-zinc-50 text-xl mb-2 mt-2">
-                {capitalizePokemonName(`${pokemon.name}`)}
+              <div className="font-bold text-zinc-50 text-xl mb-2 mt-2 capitalize">
+                {pokemon.name}
               </div>
               <button onClick={() => handleRelease(pokemon)}>
                 <svg

@@ -3,7 +3,7 @@ import { PokemonContext } from "../context/PokemonContext";
 import { colors } from "../utilities/colors";
 
 const PokemonsList = () => {
-  const { pokemons, capture, capitalizePokemonName } =
+  const { pokemons, capture } =
     useContext(PokemonContext);
 
   const handleCapture = (pokemon) => {
@@ -12,7 +12,7 @@ const PokemonsList = () => {
 
   return (
     <div>
-      <h1 className="flex justify-center">Pokemons List</h1>
+      <h1 className="flex justify-center">Wild Encounters</h1>
       <ul className="grid grid-flow-row grid-cols-5">
         {pokemons.map((pokemon) => (
           <li
@@ -46,8 +46,8 @@ const PokemonsList = () => {
                 alt={pokemon.name}
                 style={{ width: "100px", height: "100px" }}
               />
-              <div className="font-bold text-zinc-50 text-xl mb-2 mt-2">
-                {capitalizePokemonName(pokemon.name)}
+              <div className="font-bold text-zinc-50 text-xl mb-2 mt-2 capitalize">
+                {pokemon.name}
               </div>
               <button onClick={() => handleCapture(pokemon)}>
                 <svg
