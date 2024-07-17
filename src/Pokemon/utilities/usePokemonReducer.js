@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from 'react';
+import { useReducer } from 'react';
 import { CAPTURE, RELEASE, ADD_NEW_POKEMON, ADD_POKEMONS } from './actions';
 import { capturedPokemonsKey, pokemonsKey, capturedPokemonsExists, pokemonExists, getCapturedPokemons, getPokemonsList } from './stateHelpersConstants';
 
@@ -8,6 +8,7 @@ const pokemonReducer = (state, action) => {
   switch (type) {
     case CAPTURE:
       const newCapturedPokemons = [...state.capturedPokemons, pokemon];
+      localStorage.setItem(capturedPokemonsKey, JSON.stringify(newCapturedPokemons));
       return {
         ...state,
         pokemons: getPokemonsList(state.pokemons, pokemon),
@@ -57,14 +58,5 @@ export const usePokemonReducer = () => {
   };
 
   const [state, dispatch] = useReducer(pokemonReducer, initialState);
-
-  console.log('Initial pokemons state', state.pokemons);
-  console.log('Initial captured pokemons state', state.capturedPokemons);
-
-  useEffect(() => {
-    console.log('Updating capturedPokemons in localStorage:', state.capturedPokemons);
-    localStorage.setItem(capturedPokemonsKey, JSON.stringify(state.capturedPokemons));
-  }, [state.capturedPokemons]);
-
   return [state, dispatch];
 };

@@ -41,7 +41,7 @@ const PokemonForm = () => {
       <input
         className="rounded-lg h-10 w-30 items-center"
         type="text"
-        placeholder="Find Encounter"
+        placeholder="New Encounter"
         value={pokemonName}
         onChange={handleNameOnChange}
       />

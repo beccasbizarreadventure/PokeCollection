@@ -11,7 +11,7 @@ import axios from "axios";
 const PokemonContext = createContext();
 
 const PokemonProvider = (props) => {
-  console.log("Provider Loaded");
+
   const [state, dispatch] = usePokemonReducer();
   const { pokemons, capturedPokemons } = state;
   const initialLoad = useRef(true);
