@@ -3,7 +3,7 @@ import { PokemonContext } from "../context/PokemonContext";
 import { colors } from "../utilities/colors";
 
 const PokemonsList = () => {
-  const { pokemons, capture } =
+  const { pokemons, capture, shinyToggle } =
     useContext(PokemonContext);
 
   const handleCapture = (pokemon) => {
@@ -42,7 +42,7 @@ const PokemonsList = () => {
             />
             <div className="relative z-10 flex flex-col items-center justify-center space-y-2">
               <img
-                src={pokemon.imageUrl}
+                src={shinyToggle ? pokemon.shinyImageUrl : pokemon.imageUrl}
                 alt={pokemon.name}
                 style={{ width: "100px", height: "100px" }}
               />

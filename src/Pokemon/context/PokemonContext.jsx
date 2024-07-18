@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useRef } from "react";
+import React, { createContext, useEffect, useRef, useState} from "react";
 import { usePokemonReducer } from "../utilities/usePokemonReducer";
 import {
   CAPTURE,
@@ -14,12 +14,16 @@ const PokemonProvider = (props) => {
 
   const [state, dispatch] = usePokemonReducer();
   const { pokemons, capturedPokemons } = state;
+  const [shinyToggle, setShinyToggle] = useState(false);
   const initialLoad = useRef(true);
+
+  const updateSprite = () => {
+    setShinyToggle(shinyToggle => !shinyToggle);
+  };
 
   const capture = (pokemon) => dispatch({ type: CAPTURE, pokemon });
   const release = (pokemon) => dispatch({ type: RELEASE, pokemon });
-  const addNewPokemon = (pokemon) =>
-    dispatch({ type: ADD_NEW_POKEMON, pokemon });
+  const addNewPokemon = (pokemon) => dispatch({ type: ADD_NEW_POKEMON, pokemon });
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -33,6 +37,7 @@ const PokemonProvider = (props) => {
           const pokemonResponse = await axios.get(pokemon.url);
           const { id, name, sprites, types } = pokemonResponse.data;
           const imageUrl = sprites.other.showdown.front_default;
+          const shinyImageUrl = sprites.other.showdown.front_shiny;
           const type = types[0].type.name;
           return {
             id: id,
@@ -40,6 +45,7 @@ const PokemonProvider = (props) => {
             url: pokemon.url,
             imageUrl: imageUrl,
             type: type,
+            shinyImageUrl: shinyImageUrl
           };
         });
 
@@ -59,6 +65,8 @@ const PokemonProvider = (props) => {
   const providerValue = {
     pokemons,
     capturedPokemons,
+    shinyToggle,
+    updateSprite,
     capture,
     release,
     addNewPokemon,
