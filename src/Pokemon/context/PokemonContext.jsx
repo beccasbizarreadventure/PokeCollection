@@ -11,14 +11,21 @@ import axios from "axios";
 const PokemonContext = createContext();
 
 const PokemonProvider = (props) => {
+  const shinyToggleKey = 'shinyToggle';
 
   const [state, dispatch] = usePokemonReducer();
   const { pokemons, capturedPokemons } = state;
-  const [shinyToggle, setShinyToggle] = useState(false);
+  const [shinyToggle, setShinyToggle] = useState(() => {
+    return JSON.parse(localStorage.getItem(shinyToggleKey)) || false;
+  });
   const initialLoad = useRef(true);
 
   const updateSprite = () => {
-    setShinyToggle(shinyToggle => !shinyToggle);
+    setShinyToggle((prev) => {
+      const newSprite = !prev;
+      localStorage.setItem(shinyToggleKey, JSON.stringify(newSprite));
+      return newSprite;
+    });
   };
 
   const capture = (pokemon) => dispatch({ type: CAPTURE, pokemon });
