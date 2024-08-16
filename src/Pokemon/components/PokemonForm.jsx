@@ -37,20 +37,23 @@ const PokemonForm = () => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form onSubmit={handleFormSubmit} className="flex items-center space-x-2">
       <input
-        className="rounded-lg h-10 w-30 items-center"
+        className="rounded-lg h-10 flex-grow px-3 focus:outline-neutral-300 text-neutral-400"
         type="text"
         placeholder="New Encounter"
         value={pokemonName}
         onChange={handleNameOnChange}
       />
-      <button type="submit" className="pl-4">
+      <button
+        type="submit"
+        className="h-10 flex items-center justify-center px-3 text-white rounded-lg"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          fill="white"
-          className="size-9"
+          fill="currentColor"
+          className="w-9 h-9"
         >
           <path d="M8.25 10.875a2.625 2.625 0 1 1 5.25 0 2.625 2.625 0 0 1-5.25 0Z" />
           <path
