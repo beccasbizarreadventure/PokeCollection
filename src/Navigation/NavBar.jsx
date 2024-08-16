@@ -6,7 +6,7 @@ const Navigation = () => {
   const { updateSprite, shinyToggle } = useContext(PokemonContext);
 
   return (
-    <nav className="bg-red-700 w-full h-30 p-2 flex flex-row justify-between items-center drop-shadow-lg">
+    <nav className="bg-red-700 w-full h-30 p-3 flex flex-row justify-between items-center drop-shadow-lg">
       <div className="flex flex-row">
         <img
           src="/icons8-pokeball-64.png"

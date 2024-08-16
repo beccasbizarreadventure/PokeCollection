@@ -39,7 +39,7 @@ const PokemonForm = () => {
   return (
     <form onSubmit={handleFormSubmit} className="flex items-center space-x-2">
       <input
-        className="rounded-lg h-10 flex-grow px-3 focus:outline-neutral-300 text-neutral-400"
+        className="rounded-lg h-10 flex-grow pl-5 pr-20 focus:outline-neutral-300 text-neutral-400"
         type="text"
         placeholder="New Encounter"
         value={pokemonName}

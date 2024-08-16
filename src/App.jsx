@@ -8,7 +8,7 @@ import Navigation from "./Navigation/NavBar.jsx";
 const App = () => (
   <PokemonProvider>
     <Navigation />
-    <div className="flex bg-zinc-100">
+    <div className="flex bg-zinc-100 h-screen">
       <div className="flex-1">
         <PokemonsList />
       </div>

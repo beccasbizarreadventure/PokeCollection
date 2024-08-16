@@ -7,6 +7,8 @@ module.exports = {
     extend: {
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-animated')
+  ],
 }
 

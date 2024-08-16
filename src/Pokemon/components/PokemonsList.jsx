@@ -1,10 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { PokemonContext } from "../context/PokemonContext";
 import { colors } from "../utilities/colors";
 
 const PokemonsList = () => {
   const { pokemons, capture, shinyToggle } =
     useContext(PokemonContext);
+  const [hideEncounters, setHideEncounters] = useState(true);
+
+  const handleShowEncounters = () => {
+    hideEncounters ? setHideEncounters(false) : setHideEncounters(true);
+  };
 
   const handleCapture = (pokemon) => {
     capture(pokemon);
@@ -12,8 +17,11 @@ const PokemonsList = () => {
 
   return (
     <div>
-      <h1 className="flex justify-center">Wild Encounters</h1>
-      <ul className="grid grid-flow-row grid-cols-5">
+      <div className="flex justify-center drop-shadow-lg">
+        <button onClick={handleShowEncounters} className="items-center bg-red-700 hover:bg-cyan-500 text-white w-1/2 h-12 text-xl font-bold rounded-full mt-5">Wild Encounters</button>
+      </div>
+      {!hideEncounters && 
+      <ul className="grid grid-flow-row grid-cols-5 animate-fade-down">
         {pokemons.map((pokemon) => (
           <li
             className={`flex flex-col justify-center items-center ${
@@ -67,6 +75,7 @@ const PokemonsList = () => {
           </li>
         ))}
       </ul>
+      }
     </div>
   );
 };
