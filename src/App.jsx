@@ -8,9 +8,15 @@ import Navigation from "./Navigation/NavBar.jsx";
 const App = () => (
   <PokemonProvider>
     <Navigation />
-    <div className="grid grid-cols-2 bg-zinc-100">
-      <PokemonsList />
-      <Pokedex />
+    <div className="flex bg-zinc-100">
+      <div className="flex-1">
+        <PokemonsList />
+      </div>
+      <div className="w-20">
+      </div>
+      <div className="flex-1">
+        <Pokedex />
+      </div>
     </div>
   </PokemonProvider>
 );

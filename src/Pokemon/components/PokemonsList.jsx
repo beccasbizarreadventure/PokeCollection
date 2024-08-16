@@ -18,7 +18,7 @@ const PokemonsList = () => {
           <li
             className={`flex flex-col justify-center items-center ${
               colors[`${pokemon.type}`]
-            } rounded-[10px] shadow-lg m-5 py-10 px-5`}
+            } rounded-lg shadow-lg m-5 py-10 px-5`}
             key={pokemon.id}
             style={{
               position: "relative",
@@ -44,7 +44,7 @@ const PokemonsList = () => {
               <img
                 src={shinyToggle ? pokemon.shinyImageUrl : pokemon.imageUrl}
                 alt={pokemon.name}
-                style={{ width: "100px", height: "100px" }}
+                style={{ width: "6rem", height: "6rem" }}
               />
               <div className="font-bold text-zinc-50 text-xl mb-2 mt-2 capitalize">
                 {pokemon.name}
