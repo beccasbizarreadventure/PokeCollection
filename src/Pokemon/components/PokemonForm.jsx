@@ -3,31 +3,24 @@ import { PokemonContext } from "../context/PokemonContext";
 import { addNewGuy } from "../utilities/useAddNewGuy";
 
 const PokemonForm = () => {
-  const { addNewPokemon, pokemons } =
-    useContext(PokemonContext);
+  const { addNewPokemon, pokemons } = useContext(PokemonContext);
   const { fetchNewPokemon } = addNewGuy();
-
-  const [pokemonName, setPokemonName] = useState('');
-
+  const [pokemonName, setPokemonName] = useState("");
   const handleNameOnChange = (event) => {
     setPokemonName(event.target.value.toLowerCase());
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
     if (!pokemonName.trim()) {
       alert("Please enter a Pokemon name");
       return;
     }
-
     if (pokemons.find((pokemon) => pokemon.name === pokemonName)) {
       alert("Pokemon already exists");
       return;
     }
-
     const newPokemon = await fetchNewPokemon(pokemonName);
-
     if (newPokemon) {
       addNewPokemon(newPokemon);
       setPokemonName("");
