@@ -46,7 +46,7 @@ const PokemonForm = () => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className="w-9 h-9"
+          className="w-10 h-10"
         >
           <path d="M8.25 10.875a2.625 2.625 0 1 1 5.25 0 2.625 2.625 0 0 1-5.25 0Z" />
           <path
