@@ -5,11 +5,20 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const PokemonsList = () => {
   const { pokemons, capture, shinyToggle } = useContext(PokemonContext);
-  const [hideEncounters, setHideEncounters] = useState(true);
 
-  const handleShowEncounters = () => {
-    hideEncounters ? setHideEncounters(false) : setHideEncounters(true);
-  };
+  const hideEncountersKey = "hideEncounters"; 
+  const [hideEncounters, setHideEncounters] = useState(() => {
+  const storedValue = localStorage.getItem(hideEncountersKey);
+  return storedValue !== null ? JSON.parse(storedValue) : true;
+});
+
+const handleShowEncounters = () => {
+  setHideEncounters((prev) => {
+    const newHideEncounters = !prev;
+    localStorage.setItem(hideEncountersKey, JSON.stringify(newHideEncounters));
+    return newHideEncounters;
+  });
+};
 
   const handleCapture = (pokemon) => {
     capture(pokemon);
@@ -20,7 +29,7 @@ const PokemonsList = () => {
       <div className="flex justify-center drop-shadow-lg">
         <button
           onClick={handleShowEncounters}
-          className="items-center bg-red-700 hover:bg-cyan-500 text-white w-1/2 h-12 text-xl font-bold rounded-full mt-5"
+          className="items-center bg-red-700 hover:bg-cyan-500 text-white w-1/2 h-12 text-xl font-bold rounded-full mt-10 mb-2"
         >
           Wild Encounters
         </button>

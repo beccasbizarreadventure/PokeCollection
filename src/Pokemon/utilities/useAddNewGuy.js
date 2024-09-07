@@ -3,7 +3,8 @@ import axios from "axios";
 export const addNewGuy = () => {
   const fetchNewPokemon = async (pokemonName) => {
     try {
-      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+      const lowerCaseName = pokemonName.toLowerCase();
+      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${lowerCaseName}`);
       console.log(response);
       if (!response.data) {
         throw new Error('Pokemon not found');

@@ -6,10 +6,18 @@ import { motion, AnimatePresence } from "framer-motion";
 const Pokedex = () => {
   const { capturedPokemons, release, shinyToggle } = useContext(PokemonContext);
 
-  const [hideCaught, setHideCaught] = useState(true);
-
+  const hideCaughtKey = "hideCaught"; 
+  const [hideCaught, setHideCaught] = useState(() => {
+    const storedValue = localStorage.getItem(hideCaughtKey);
+    return storedValue !== null ? JSON.parse(storedValue) : true;
+  });
+  
   const handleShowCaught = () => {
-    hideCaught ? setHideCaught(false) : setHideCaught(true);
+    setHideCaught((prev) => {
+      const newHideCaught = !prev;
+      localStorage.setItem(hideCaughtKey, JSON.stringify(newHideCaught));
+      return newHideCaught;
+    });
   };
 
   const handleRelease = (pokemon) => {
@@ -21,7 +29,7 @@ const Pokedex = () => {
       <div className="flex justify-center drop-shadow-lg">
         <button
           onClick={handleShowCaught}
-          className="items-center bg-red-700 hover:bg-cyan-500 text-white w-1/2 h-12 text-xl font-bold rounded-full mt-5"
+          className="items-center bg-red-700 hover:bg-cyan-500 text-white w-1/2 h-12 text-xl font-bold rounded-full mt-10 mb-2"
         >
           Pokedex
         </button>

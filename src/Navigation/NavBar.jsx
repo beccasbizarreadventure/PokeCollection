@@ -13,7 +13,9 @@ const Navigation = () => {
           alt="pokeball"
           className="pl-2 pr-4"
         />
+        <div className="pt-3">
         <PokemonForm />
+        </div>
       </div>
       <div className="flex items-center">
         <label
