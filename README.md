@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# PokéCollection
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)\
+Based off of the <a href="https://github.com/imteekay/pokehooks-labs">repo</a> and <a href="https://www.freecodecamp.org/news/building-a-simple-pokemon-web-app-with-react-hooks-and-context-api/">tutorial</a> by <a href= "https://github.com/imteekay">imteekay</a>\
+Utilizing the <a href="https://pokeapi.co/">PokeApi</a> to populate the pokemon data, you can add pokemon from the 'Wild Encounters' list to the 'Pokedex' list\
+Each pokemon is also given a custom background color based on their type\
+The app uses local storage to track the pokemon in you lists as well as any you add with the search bar and sprite color (normal or shiny)\
 
 ## Available Scripts
 
@@ -8,63 +12,32 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This runs the app in the development mode\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to Use the App
+Click the header buttons above the list to toggle down the lists\
+![Demo image of list toggle](<public/Screenshot 1.png>)<br /><br />
+Click the '+' icon underneath a Pokemon from the 'Wild Encounters' to add them to the 'Pokedex' list\
+![Demo image adding to Pokedex list](<public/Screenshot 2.png>)<br /><br />
+Click the '-' to put them back into 'Wild Encounters'\
+![Demo image remove pokemon from pokedex](<public/Screenshot 3.png>)<br /><br />
+Add a new pokemon to the 'Wild Encounters' using the search bar in the nav\
+![Demo image add a new encounter](<public/Screenshot 4.png>)<br /><br />
+Use the toggle on the top right to change between normal and shiny sprites
+![Demo image change sprites to shiny image](<public/Screenshot 5.png>)<br /><br />
+Extra Note: this app looks best at 50% zoom on smaller screens
 
-### `npm test`
+## Dependancies 
+- Framer Motion v 11.3.31
+- React v 18.3.1
+- Tailwind CSS v 3.4.4
+- Axios v 1.7.2
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Credits
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project base/tutorial by <a href="https://www.freecodecamp.org/news/building-a-simple-pokemon-web-app-with-react-hooks-and-context-api/">imteekay</a>\
+Pokeball icons from <a href="https://www.freepik.com/">Freepik</a>\
+<a href="https://codesandbox.io/p/sandbox/framer-motion-accordion-yhixfe?file=%2Fsrc%2FApp.jsx">Accordion animation</a>\
+Pokemon data from <a href="https://pokeapi.co/">PokeAPI</a>\
+Other icons from <a href="https://heroicons.com/">Heroicons</a>
