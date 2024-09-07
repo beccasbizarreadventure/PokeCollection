@@ -73,7 +73,7 @@ const PokemonForm = () => {
       <AnimatePresence initial={false} mode="popLayout">
         {showErrorMessage && (
           <motion.div 
-          initial={{ opacity: 0, y: 50, scale: 0.3 }}
+          initial={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
           >
@@ -82,7 +82,7 @@ const PokemonForm = () => {
               data-popper-arrow
             ></div>
             <div
-              className="absolute left-1/2 transform -translate-x-1/2 mt-2 px-4 py-2 text-base font-medium text-white bg-cyan-500 rounded-xl shadow-sm whitespace-nowrap"
+              className="absolute left-1/2 transform -translate-x-1/2 mt-2 px-4 py-2 text-lg font-medium text-white bg-cyan-500 rounded-xl shadow-sm whitespace-nowrap"
             >
               {errorMessage}
             </div>
