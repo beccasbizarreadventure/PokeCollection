@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Based off of the <a href="https://github.com/imteekay/pokehooks-labs">repo</a> and <a href="https://www.freecodecamp.org/news/building-a-simple-pokemon-web-app-with-react-hooks-and-context-api/">tutorial</a> by <a href= "https://github.com/imteekay">imteekay</a>\
 Utilizing the <a href="https://pokeapi.co/">PokeApi</a> to populate the pokemon data, you can add pokemon from the 'Wild Encounters' list to the 'Pokedex' list\
 Each pokemon is also given a custom background color based on their type\
-The app uses local storage to track the pokemon in you lists as well as any you add with the search bar and sprite color (normal or shiny)\
+The app uses local storage to track the pokemon in you lists as well as any you add with the search bar and sprite color (normal or shiny)
 
 ## Available Scripts
 
